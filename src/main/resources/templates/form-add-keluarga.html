@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/fragment :: headerFragment(pageTitle='Form Tambah Keluarga')">    
+    </head>
+	<body>
+		<div th:replace = "fragments/fragment :: header" ></div>
+		<div class="container">
+			<h4>Tambah Keluarga</h4><hr/>
+			<form action="/keluarga/tambah" th:object="${keluarga}" method="post">
+				<div class="row">
+					<div class="form-group col-xs-5 col-lg-4">
+						<label for="alamat">Alamat</label><br/>
+						<input type="text" class="form-control" id="alamat" name="alamat" th:field="*{alamat}"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-5 col-lg-4">
+						<label for="rt">RT</label><br/>
+						<input type="text" class="form-control" id="rt" name="rt" th:field="*{rt}"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-5 col-lg-4">
+						<label for="rw">RW</label><br/>
+						<input type="text" class="form-control" id="rw" name="rw" th:field="*{rw}"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-5 col-lg-4">
+						<label for="id_kelurahan">ID Kelurahan</label><br/>
+						<input type="text" class="form-control" id="id_kelurahan" name="id_kelurahan" th:field="*{id_kelurahan}"/>
+					</div>
+				</div>
+				<div>
+					<button type="submit" class="btn btn-primary">Simpan</button>
+				</div>
+			</form>
+		</div>
+		<div th:replace = "fragments/fragment :: footer" ></div>
+	</body>
+</html>
+

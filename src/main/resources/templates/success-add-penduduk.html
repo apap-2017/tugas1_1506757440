@@ -1,0 +1,9 @@
+<html>
+	<head th:replace="fragments/fragment :: headerFragment(pageTitle='Add Penduduk Successful')">    
+    </head>
+	<body>
+		<div th:replace = "fragments/fragment :: header" ></div>
+		<h2 th:text="'Penduduk dengan NIK ' + ${resident.nik} + ' berhasil ditambahkan'">Data berhasil ditambahkan</h2>
+		<div th:replace = "fragments/fragment :: footer" ></div>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/fragment :: headerFragment(pageTitle='View Keluarga')">    
+    </head>
+    <body>
+    	<div th:replace = "fragments/fragment :: header" ></div>
+		<div class="container">
+	    	<h2 th:text="'Lihat Data Keluarga - ' + ${keluarga.nomor_kk}"></h2>
+	       	<h5 th:text="'NKK ' + ${keluarga.nomor_kk}">NKK Resident</h5>
+	       	<h5 th:text="'Alamat ' + ${keluarga.alamat}">Nama Resident</h5>
+	       	<h5 th:text="'RT/RW ' + ${keluarga.rt} + '/' + ${keluarga.rw}">Tempat/Tanggal Lahir Resident</h5>
+	       	<h5 th:text="'Kelurahan/Desa ' + ${alamat.nama_kelurahan}">Kelurahan Resident</h5>
+	       	<h5 th:text="'Kecamatan ' + ${alamat.nama_kecamatan}">Kecamatan Resident</h5>
+	       	<h5 th:text="'Kota ' + ${alamat.nama_kota}">Kota Resident</h5>
+	       	<hr/>
+	       	<table class="table">
+	       		<thead>
+	       			<tr>
+	       				<th>Nama Lengkap</th>
+	       				<th>NIK</th>
+	       				<th>Jenis Kelamin</th>
+	       				<th>Tempat Lahir</th>
+	       				<th>Tanggal Lahir</th>
+	       				<th>Agama</th>
+	       				<th>Pekerjaan</th>
+	       				<th>Status Perkawinan</th>
+	       				<th>Status dalam Keluarga</th>
+	       				<th>Kewarganegaraan</th>
+	       			</tr>
+	       		</thead>
+	       		<tbody>
+	       			<tr th:each="resident, iterationStatus: ${residences}">
+	       				<td th:text="${resident.nama}"></td>
+	       				<td th:text="${resident.nik}"></td>
+	       				<td th:if="${resident.getJenis_kelamin()==0}" th:text="Pria"></td>
+	       				<td th:unless="${resident.getJenis_kelamin()==0}" th:text="Wanita"></td>
+	       				<td th:text="${resident.tempat_lahir}"></td>
+	       				<td th:text="${resident.tanggal_lahir}"></td>
+	       				<td th:text="${resident.agama}"></td>
+	       				<td th:text="${resident.pekerjaan}"></td>
+	       				<td th:text="${resident.status_perkawinan}"></td>
+	       				<td th:text="${resident.status_dalam_keluarga}"></td>
+	       				<td th:if="${resident.getIs_wni()==1}" th:text="WNI"></td>
+	       				<td th:unless="${resident.getIs_wni()==1}" th:text="WNA"></td>
+	       			</tr>
+	       		</tbody>
+	       	</table>
+		</div>
+		<div th:replace = "fragments/fragment :: footer" ></div>
+    </body>
+</html>

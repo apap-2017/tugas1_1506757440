@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+	<head th:fragment="headerFragment (pageTitle)">
+		<title th:text="${pageTitle}">Page Title</title>
+		<link rel="stylesheet" href="/css/datatables.min.css"/>
+		<link rel = "stylesheet" href ="/css/bootstrap.min.css"/>
+	</head>
+	<body>
+		<div th:fragment = "header">
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+				    <div class="navbar-header">
+				    	<a class="navbar-brand" href="/">SI Kependudukan</a>
+				    </div>
+				    <ul class="nav navbar-nav">
+				    	<li><a href="/">Home</a></li>
+				      	<li><a href="#">Cari Data</a></li>
+				      	<li><a href="/penduduk/tambah">Tambah Penduduk</a></li>
+				      	<li><a href="/keluarga/tambah">Tambah Keluarga</a></li>
+			    	</ul>
+			  	</div>
+			</nav>
+		</div>
+		<div th:fragment = "footer">
+			<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+			<script type="text/javascript" src="/js/datatables.min.js"></script>
+			<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	 		<script>
+		       	$(document).ready(function(){
+		       	    $('#studentsTable').DataTable();
+		       	});
+	       	</script>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/fragment :: headerFragment(pageTitle='View Penduduk')">    
+    </head>
+    <body>
+    	<div th:replace = "fragments/fragment :: header" ></div>
+		<div class="container">
+	    	<h2 th:text="'Lihat Data Penduduk - ' + ${resident.nik}"></h2>
+	       	<h5 th:text="'NIK ' + ${resident.nik}">NIK Resident</h5>
+	       	<h5 th:text="'Nama ' + ${resident.nama}">Nama Resident</h5>
+	       	<h5 th:text="'Tempat/Tanggal Lahir ' + ${resident.tempat_lahir} + ', ' + ${resident.tanggal_lahir}">Tempat/Tanggal Lahir Resident</h5>
+	       	<h5 th:text="'Alamat ' + ${keluarga.alamat}">Alamat Resident</h5> 
+	       	<h5 th:text="'RT/RW ' + ${keluarga.rt} + '/' + ${keluarga.rw}">RT/RW Resident</h5>
+	       	<h5 th:text="'Kelurahan/Desa ' + ${alamat.nama_kelurahan}">Kelurahan Resident</h5>
+	       	<h5 th:text="'Kecamatan ' + ${alamat.nama_kecamatan}">Kecamatan Resident</h5>
+	       	<h5 th:text="'Kota ' + ${alamat.nama_kota}">Kota Resident</h5>
+	       	<h5 th:text="'Golongan Darah ' + ${resident.golongan_darah}">Golongan Darah Resident</h5>
+	       	<h5 th:text="'Agama ' + ${resident.agama}">Agama Resident</h5>
+	       	<h5 th:text="'Status Perkawinan ' + ${resident.status_perkawinan}">Status Perkawinan Resident</h5>
+	       	<h5 th:text="'Pekerjaan ' + ${resident.pekerjaan}">Pekerjaan Resident</h5>
+	       	<div th:if="${resident.getIs_wni()} == 1">	
+	       		<h5 th:text="'Kewarganegaraan ' + 'WNI'">Kewarganegaraan Resident</h5>
+	       	</div>
+	       	<div th:unless="${resident.getIs_wni()} == 1">
+	       		<h5 th:text="'Kewarganegaraan ' + 'WNA'">Kewarganegaraan Resident</h5>
+	       	</div>
+	       	<div th:if="${resident.getIs_wafat()} == 0">
+	       		<h5 th:text="'Status Kematian ' + 'Hidup'">Status Hidup</h5>
+	       	</div>
+	       	<div th:unless="${resident.getIs_wafat()} == 0">
+	       		<h5 th:text="'Status Kematian ' + 'Wafat'">Status Wafat</h5>
+	       	</div>
+
+			
+			<!--<h5 th:text="'Status Kematian ' + ${resident.is_wafat}">Status Kematian Resident</h5> -->
+			<!-- Latest compiled and minified JavaScript -->
+		</div>
+		<div th:replace = "fragments/fragment :: footer" ></div>
+    </body>
+</html>

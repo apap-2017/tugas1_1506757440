@@ -1,0 +1,9 @@
+<html>
+	<head th:replace="fragments/fragment :: headerFragment(pageTitle='Update Keluarga SUccessful')">    
+    </head>
+	<body>
+		<div th:replace = "fragments/fragment :: header" ></div>
+		<h2 th:text="'Keluarga dengan NKK ' + ${nkk} + ' berhasil diubah'">Data berhasil ditambahkan</h2>
+		<div th:replace = "fragments/fragment :: footer" ></div>
+	</body>
+</html>
